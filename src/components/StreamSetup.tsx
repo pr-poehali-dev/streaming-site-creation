@@ -12,7 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import Icon from "@/components/ui/icon";
+import { Copy, Video, Radio } from "lucide-react";
 
 const StreamSetup = () => {
   const [streamTitle, setStreamTitle] = useState("");
@@ -40,6 +40,9 @@ const StreamSetup = () => {
       description: streamDescription,
       private: isPrivate,
     });
+
+    // Provide user feedback
+    alert("Стрим настроен! Теперь запустите трансляцию в OBS Studio.");
   };
 
   return (
@@ -140,7 +143,7 @@ const StreamSetup = () => {
                       className="bg-slate-800 border-slate-700 text-white"
                     />
                     <Button variant="outline" className="border-slate-700">
-                      <Icon name="Copy" size={16} />
+                      <Copy size={16} />
                     </Button>
                   </div>
                   <p className="text-sm text-gray-400 mt-1">
@@ -168,7 +171,7 @@ const StreamSetup = () => {
               </CardHeader>
               <CardContent>
                 <div className="aspect-video bg-slate-800 rounded-lg mb-4 flex items-center justify-center">
-                  <Icon name="Video" size={48} className="text-gray-500" />
+                  <Video size={48} className="text-gray-500" />
                 </div>
                 <p className="text-sm text-gray-400 text-center">
                   Здесь будет превью вашего стрима
@@ -182,7 +185,7 @@ const StreamSetup = () => {
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3"
                 disabled={!streamTitle || !gameCategory}
               >
-                <Icon name="Radio" size={20} className="mr-2" />
+                <Radio size={20} className="mr-2" />
                 Начать стрим
               </Button>
 

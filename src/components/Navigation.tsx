@@ -2,7 +2,11 @@ import { Search, Menu, User, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const Navigation = () => {
+interface NavigationProps {
+  onStartStream?: () => void;
+}
+
+const Navigation = ({ onStartStream }: NavigationProps) => {
   return (
     <nav className="bg-slate-900 border-b border-slate-800 px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -46,7 +50,10 @@ const Navigation = () => {
 
         {/* User Actions */}
         <div className="flex items-center space-x-3">
-          <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2">
+          <Button
+            onClick={onStartStream}
+            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2"
+          >
             🔴 Начать стрим
           </Button>
           <Button

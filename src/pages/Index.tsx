@@ -1,8 +1,16 @@
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import StreamCard from "@/components/StreamCard";
 import CategoryCard from "@/components/CategoryCard";
+import StreamSetup from "@/components/StreamSetup";
 
 const Index = () => {
+  const [showStreamSetup, setShowStreamSetup] = useState(false);
+
+  if (showStreamSetup) {
+    return <StreamSetup />;
+  }
+
   // Mock data for featured streams
   const featuredStreams = [
     {
@@ -88,7 +96,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      <Navigation />
+      <Navigation onStartStream={() => setShowStreamSetup(true)} />
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero Section */}
